@@ -7,9 +7,9 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css"
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css"
         rel="stylesheet">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -22,16 +22,30 @@
                     <div class="form-group">
                         <label for="searchInput">Search for a City:</label>
                         <input type="text" class="form-control" id="searchInput">
-                        <button class="searchBtn fas fa-search fa-2x"></button>
+                        <button class="searchBtn fas fa-search fa-2x">Search</button>
                     </div>
+                    <div class="history"></div>
                 </form>
             </div>
             <div class="col-md-8 display-weather">
+                <div class="location-forecast">
+                    <div id="location">Search for a location</div>
+                    <div class="bold">Temperature: <span id="curTemp"></span></div>
+                    <div class="bold">Humidity: <span id="humidity"></span></div>
+                    <div class="bold">Wind Speed: <span id="wind"></span></div>
+                    <div class="bold">UV Index: <span id="uv"></span></div>
+                </div>
 
-
-                <div class="five-day">
+                <div>
                     <h3>5-day Forecast</h3>
-
+                    <div class="five-day">
+                        <div id="day-one"></div>
+                        <div id="day-two"></div>
+                        <div id="day-three"></div>
+                        <div id="day-four"></div>
+                        <div id="day-five"></div>
+                    </div>
+                    <!-- research flexbox -->
                 </div>
             </div>
         </div>
@@ -41,6 +55,7 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="script.js"></script>
 </body>
 

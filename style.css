@@ -4,3 +4,32 @@ h1 {
     background-color: darkslategrey;
     padding: 20px;
 }
+
+.location-forecast {
+    font-size: 15px;
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
+.five-day {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+#uv {
+    color: white;
+    background-color: red;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#location {
+    font-size: 20px;
+    font-weight: bold;
+}
