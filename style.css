@@ -5,6 +5,11 @@ h1 {
     padding: 20px;
 }
 
+button {
+    margin: 2px;
+    padding: 5px;
+}
+
 .location-forecast {
     font-size: 15px;
     padding: 10px;
@@ -16,6 +21,16 @@ h1 {
     padding: 10px;
     display: flex;
     justify-content: space-between;
+}
+
+.blue-box {
+    color: white;
+    background-color: blue;
+    font-weight: bold;
+    border: 2px solid lightskyblue;
+    border-radius: 5px;
+    flex: content;
+    padding: 10px;
 }
 
 .bold {

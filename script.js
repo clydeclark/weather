@@ -21,7 +21,7 @@ $(document).ready(function () {
     $(".searchBtn").on("click", function () {
         event.preventDefault();
         location = $("#searchInput").val();
-        if ($("#searchInput").val !== null) {
+        if ($("#searchInput").val() == null) {
             $(".history").append(`<div><button class="location">${location}</button></div>`);
         }
         oneDayCall(location);
@@ -102,10 +102,15 @@ $(document).ready(function () {
     }
 
     function popFive(response) {
-        // for (var i = 0; i < 5; i++) {
-        //     var div = $("<div>").text(i);
+        console.log(response.daily);
+        for (var i = 0; i < 5; i++) {
+            let tempDate = moment.unix(response.daily[i].dt).format('L');
+            let tempTemp = response.daily[i].temp.day;
+            let tempHumidity = response.daily[i].humidity;
+            $("#five-day").append(`<div class="blue-box">${tempDate}<br><br>Temp: ${tempTemp}°F<br><br>Humidity: ${tempHumidity}%`);
+            // $(".history").append(`<div><button class="location">${cities[i]}</button></div>`);
 
-        // }
+        }
     }
 
 });
