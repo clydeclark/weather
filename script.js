@@ -1,13 +1,13 @@
 $(document).ready(function () {
 
     var cities = [];
-    var date = moment().format('MMM Do YYYY');
+    var date;
     var storedVal = localStorage.getItem("cities");
     var APIkey = "1547aa72d05b54adb9e772b31cccca3c"
     var location;
     var lat;
     var lon;
-    var fiveDayEl = $("#five-day")
+
 
     if (storedVal) {
         cities = storedVal.split(",");
@@ -42,10 +42,10 @@ $(document).ready(function () {
                 method: "GET"
             })
             .then(function (response) {
-                popWeather(response);
-                // console.log(response);
                 lat = response.coord.lat;
                 lon = response.coord.lon;
+                date = moment.unix(response.dt).format('dddd, MMMM Do YYYY');
+                popWeather(response);
                 uvCall();
                 fiveDayCall();
             })
@@ -66,14 +66,15 @@ $(document).ready(function () {
     }
 
     function fiveDayCall() {
-        var fiveDayURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + location + "&appid=" + APIkey;
+        var fiveDayURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&appid=" + APIkey + "&units=imperial";
+
 
         $.ajax({
                 url: fiveDayURL,
                 method: "GET"
             })
             .then(function (response) {
-                console.log(response);
+                // console.log(response);
                 popFive(response);
             })
     }
@@ -83,11 +84,12 @@ $(document).ready(function () {
         event.stopImmediatePropagation();
         event.preventDefault();
         location = $(event.target).text();
-        oneDayCall(location);
+        oneDayCall(location, date);
     })
 
     // populate weather stats
     function popWeather(response) {
+        // console.log(date);
         $("#location").html(`${response.name} - ${date}`);
         $("#curTemp").html(response.main.temp);
         $("#humidity").html(response.main.humidity);
@@ -100,7 +102,10 @@ $(document).ready(function () {
     }
 
     function popFive(response) {
+        // for (var i = 0; i < 5; i++) {
+        //     var div = $("<div>").text(i);
 
+        // }
     }
 
 });
