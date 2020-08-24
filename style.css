@@ -17,7 +17,27 @@ button {
     border-radius: 10px;
 }
 
-.five-day {
+.locationBtn {
+    background-color: lightgray;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.locationBtn:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.history {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+#five-day {
     padding: 10px;
     display: flex;
     justify-content: space-between;
@@ -37,7 +57,7 @@ button {
     font-weight: bold;
 }
 
-#uv {
+.uvStyling {
     color: white;
     background-color: red;
     padding: 5px;

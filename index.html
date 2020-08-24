@@ -7,9 +7,8 @@
     <title>Weather Planner</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css"
-        rel="stylesheet">
-    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"
+        media="screen" />
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -22,7 +21,7 @@
                     <div class="form-group">
                         <label for="searchInput">Search for a City:</label>
                         <input type="text" class="form-control" id="searchInput">
-                        <button class="searchBtn"><i class=" fas fa-search fa-2x"></i></button>
+                        <button class="searchBtn"><i class="fa fa-search"></i></button>
                     </div>
                     <div class="history"></div>
                 </form>
@@ -33,27 +32,13 @@
                     <div class="bold">Temperature: <span id="curTemp"></span></div>
                     <div class="bold">Humidity: <span id="humidity"></span></div>
                     <div class="bold">Wind Speed: <span id="wind"></span></div>
-                    <div class="bold">UV Index: <span id="uv"></span></div>
+                    <div class="bold">UV Index: <span class="uv"></span></div>
                 </div>
 
                 <div>
                     <h3>5-day Forecast</h3>
                     <div id="five-day">
-                        <!-- <div class="blue-box">
-                            1
-                        </div>
-                        <div class="blue-box">
-                            2
-                        </div>
-                        <div class="blue-box">
-                            3
-                        </div>
-                        <div class="blue-box">
-                            4
-                        </div>
-                        <div class="blue-box">
-                            5
-                        </div> -->
+
                     </div>
                 </div>
             </div>

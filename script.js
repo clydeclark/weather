@@ -14,16 +14,15 @@ $(document).ready(function () {
     }
     // loop through cities and do button append
     for (var i = 0; i < cities.length; i++) {
-        $(".history").append(`<div><button class="location">${cities[i]}</button></div>`);
+        $(".history").append(`<div><div class="locationBtn">${cities[i]}</div></div>`);
     }
 
     // search function
     $(".searchBtn").on("click", function () {
         event.preventDefault();
         location = $("#searchInput").val();
-        if ($("#searchInput").val() == null) {
-            $(".history").append(`<div><button class="location">${location}</button></div>`);
-        }
+        $(".history").append(`<div><div class="locationBtn">${location}</div></div>`);
+
         oneDayCall(location);
         if (!cities.includes(location)) {
             cities.push(location);
@@ -51,6 +50,7 @@ $(document).ready(function () {
             })
     }
 
+    // uv call
     function uvCall() {
         var uvURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIkey + "&lat=" + lat + "&lon=" + lon;
 
@@ -65,6 +65,7 @@ $(document).ready(function () {
             })
     }
 
+    // five-day forecast call
     function fiveDayCall() {
         var fiveDayURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&appid=" + APIkey + "&units=imperial";
 
@@ -74,13 +75,12 @@ $(document).ready(function () {
                 method: "GET"
             })
             .then(function (response) {
-                // console.log(response);
                 popFive(response);
             })
     }
 
     // populate from location buttons
-    $(document).on("click", ".location", function () {
+    $(document).on("click", ".locationBtn", function () {
         event.stopImmediatePropagation();
         event.preventDefault();
         location = $(event.target).text();
@@ -89,7 +89,6 @@ $(document).ready(function () {
 
     // populate weather stats
     function popWeather(response) {
-        // console.log(date);
         $("#location").html(`${response.name} - ${date}`);
         $("#curTemp").html(response.main.temp);
         $("#humidity").html(response.main.humidity);
@@ -97,18 +96,21 @@ $(document).ready(function () {
 
     }
 
+    // populate uv
     function popUV(response) {
-        $("#uv").html(response.value)
+        $(".uv").html(response.value);
+        $(".uv").addClass("uvStyling");
     }
 
+    // loop to populate 5-day forecast
     function popFive(response) {
-        console.log(response.daily);
+        console.log(response);
         for (var i = 0; i < 5; i++) {
             let tempDate = moment.unix(response.daily[i].dt).format('L');
             let tempTemp = response.daily[i].temp.day;
             let tempHumidity = response.daily[i].humidity;
-            $("#five-day").append(`<div class="blue-box">${tempDate}<br><br>Temp: ${tempTemp}°F<br><br>Humidity: ${tempHumidity}%`);
-            // $(".history").append(`<div><button class="location">${cities[i]}</button></div>`);
+            $("#five-day").append(`<div class="blue-box">${tempDate}<br><br>Temp: ${tempTemp}°F<br><br>Humidity: ${tempHumidity}%</div>`);
+
 
         }
     }
