@@ -34,7 +34,7 @@ $(document).ready(function () {
 
     // connect to the APIs
     function oneDayCall(location) {
-        var oneDayURL = "http://api.openweathermap.org/data/2.5/weather?q=" + location + "&APPID=" + APIkey + "&units=imperial";
+        var oneDayURL = "https://api.openweathermap.org/data/2.5/weather?q=" + location + "&APPID=" + APIkey + "&units=imperial";
 
         $.ajax({
                 url: oneDayURL,
@@ -52,7 +52,7 @@ $(document).ready(function () {
 
     // uv call
     function uvCall() {
-        var uvURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIkey + "&lat=" + lat + "&lon=" + lon;
+        var uvURL = "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIkey + "&lat=" + lat + "&lon=" + lon;
 
 
         $.ajax({
